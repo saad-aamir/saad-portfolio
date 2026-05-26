@@ -8,6 +8,7 @@ import Experience from "@/components/sections/experience";
 import Work from "@/components/sections/work";
 import Stats from "@/components/sections/stats";
 import Toolkit from "@/components/sections/toolkit";
+import Writing from "@/components/sections/writing";
 import Contact from "@/components/sections/contact";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <Work />
         <Stats />
         <Toolkit />
+        <Writing />
         <Contact />
       </main>
       <Footer />
