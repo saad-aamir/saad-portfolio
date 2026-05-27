@@ -9,6 +9,14 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "Why 23 strangers in a room are more interesting than they look",
+    excerpt: "Walk into a room with 22 other people — there's a better than 50% chance two of you share a birthday. That sounds wrong.",
+    date: "2026-05-27",
+    readTime: "5 min read",
+    tag: "Probability",
+    href: "https://beginnersmindbysaad.substack.com/p/why-23-strangers-in-a-room-are-more",
+  },
+  {
     title: "Why nice guys finish first (sometimes)",
     excerpt: "The Prisoner's Dilemma, Axelrod's tournament, and how cooperation actually wins.",
     date: "2026-05-23",
