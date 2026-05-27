@@ -5,6 +5,7 @@ export interface Post {
   readTime: string;   // "5 min read"
   tag: string;        // single topic label, e.g. "AI Safety"
   href: string;       // full Substack URL
+  demoHref?: string;  // optional interactive demo URL
 }
 
 export const posts: Post[] = [
@@ -15,6 +16,7 @@ export const posts: Post[] = [
     readTime: "5 min read",
     tag: "Probability",
     href: "https://beginnersmindbysaad.substack.com/p/why-23-strangers-in-a-room-are-more",
+    demoHref: "https://saad-aamir.github.io/birthday-paradox/",
   },
   {
     title: "Why nice guys finish first (sometimes)",
@@ -23,6 +25,7 @@ export const posts: Post[] = [
     readTime: "5 min read",
     tag: "Game Theory",
     href: "https://beginnersmindbysaad.substack.com/p/why-nice-guys-finish-first-sometimes",
+    demoHref: "https://saad-aamir.github.io/beginners-mind-prisoners-dilemma/",
   },
 ];
 
