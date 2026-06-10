@@ -5,6 +5,7 @@ export interface Post {
   readTime: string;   // "5 min read"
   tag: string;        // single topic label, e.g. "AI Safety"
   href: string;       // full Substack URL
+  subtitle?: string;   // optional second line below excerpt
   demoHref?: string;  // optional interactive demo URL
   githubHref?: string; // optional GitHub repo URL
 }
@@ -13,6 +14,7 @@ export const posts: Post[] = [
   {
     title: "Tools should return data, not language",
     excerpt: "Tools should return data, Language models should return language.",
+    subtitle: "How I stopped trying to make my MCP tool write emails and let Claude do its job.",
     date: "2026-06-11",
     readTime: "5 min read",
     tag: "MCP",
