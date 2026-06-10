@@ -81,14 +81,6 @@ export default function Writing() {
                   >
                     {post.excerpt}
                   </p>
-                  {post.subtitle && (
-                    <p
-                      className="text-text-mute leading-relaxed mt-0.5"
-                      style={{ fontSize: "13px", opacity: 0.65 }}
-                    >
-                      {post.subtitle}
-                    </p>
-                  )}
                   <div className="flex items-center gap-4">
                     {post.demoHref && (
                       <a
