@@ -4,7 +4,7 @@ import Container from "@/components/ui/container";
 import Reveal from "@/components/ui/reveal";
 import Eyebrow from "@/components/ui/eyebrow";
 import { posts, substackUrl } from "@/lib/posts";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, GitBranch } from "lucide-react";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", {
@@ -81,19 +81,34 @@ export default function Writing() {
                   >
                     {post.excerpt}
                   </p>
-                  {post.demoHref && (
-                    <a
-                      href={post.demoHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 font-mono text-accent-dim hover:text-accent transition-colors mt-2.5"
-                      style={{ fontSize: "11.5px" }}
-                    >
-                      <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
-                      Try the demo
-                    </a>
-                  )}
+                  <div className="flex items-center gap-4">
+                    {post.demoHref && (
+                      <a
+                        href={post.demoHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 font-mono text-accent-dim hover:text-accent transition-colors mt-2.5"
+                        style={{ fontSize: "11.5px" }}
+                      >
+                        <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                        Try the demo
+                      </a>
+                    )}
+                    {post.githubHref && (
+                      <a
+                        href={post.githubHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center gap-1 font-mono text-accent-dim hover:text-accent transition-colors mt-2.5"
+                        style={{ fontSize: "11.5px" }}
+                      >
+                        <GitBranch className="h-3 w-3" aria-hidden="true" />
+                        View on GitHub
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Meta */}

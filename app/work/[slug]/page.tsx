@@ -9,6 +9,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { clsx } from "clsx";
 import ProjectCopilot from "@/components/visuals/project-copilot";
 import ProjectMatcher from "@/components/visuals/project-matcher";
+import CopilotBody from "@/components/case-studies/copilot-body";
 
 const visualMap: Record<string, React.ComponentType> = {
   "dark-matter-copilot": ProjectCopilot,
@@ -127,81 +128,85 @@ export default async function CaseStudyPage({
 
         {/* Case study body */}
         <Container>
-          <div className="py-16 max-w-[720px] mx-auto space-y-16">
-            {sections.map(({ eyebrow, content }) => (
-              <section key={eyebrow} aria-label={eyebrow}>
-                <p className="font-mono text-xs text-accent uppercase tracking-widest mb-5">
-                  {eyebrow}
-                </p>
-                {content!.text.split("\n\n").map((para, i) => (
-                  <p key={i} className="text-text-dim leading-relaxed mb-4 last:mb-0">
-                    {para}
+          {slug === "dark-matter-copilot" ? (
+            <CopilotBody githubHref={project.links.github} />
+          ) : (
+            <div className="py-16 max-w-[720px] mx-auto space-y-16">
+              {sections.map(({ eyebrow, content }) => (
+                <section key={eyebrow} aria-label={eyebrow}>
+                  <p className="font-mono text-xs text-accent uppercase tracking-widest mb-5">
+                    {eyebrow}
                   </p>
-                ))}
-                {content!.bullets && (
-                  <ul className="mt-5 space-y-3">
-                    {content!.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3 text-text-dim leading-relaxed" style={{ fontSize: "15px" }}>
-                        <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" aria-hidden="true" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-            ))}
+                  {content!.text.split("\n\n").map((para, i) => (
+                    <p key={i} className="text-text-dim leading-relaxed mb-4 last:mb-0">
+                      {para}
+                    </p>
+                  ))}
+                  {content!.bullets && (
+                    <ul className="mt-5 space-y-3">
+                      {content!.bullets.map((bullet) => (
+                        <li key={bullet} className="flex gap-3 text-text-dim leading-relaxed" style={{ fontSize: "15px" }}>
+                          <span className="mt-[9px] h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" aria-hidden="true" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              ))}
 
-            {/* Links */}
-            {(project.links.github || project.links.live) && (
-              <section aria-label="Links">
+              {/* Links */}
+              {(project.links.github || project.links.live) && (
+                <section aria-label="Links">
+                  <p className="font-mono text-xs text-accent uppercase tracking-widest mb-5">
+                    Links
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {project.links.github && (
+                      <a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
+                      >
+                        GitHub <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                    {project.links.live && (
+                      <a
+                        href={project.links.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
+                      >
+                        Live site <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
+                </section>
+              )}
+
+              {/* Related */}
+              <section aria-label="Related work">
                 <p className="font-mono text-xs text-accent uppercase tracking-widest mb-5">
-                  Links
+                  Related case studies
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  {project.links.github && (
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
-                    >
-                      GitHub <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
-                  )}
-                  {project.links.live && (
-                    <a
-                      href={project.links.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
-                    >
-                      Live site <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
-                  )}
+                  {projects
+                    .filter((p) => p.caseStudy && p.slug !== slug)
+                    .map((p) => (
+                      <a
+                        key={p.slug}
+                        href={`/work/${p.slug}`}
+                        className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
+                      >
+                        {p.title} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </a>
+                    ))}
                 </div>
               </section>
-            )}
-
-            {/* Related */}
-            <section aria-label="Related work">
-              <p className="font-mono text-xs text-accent uppercase tracking-widest mb-5">
-                Related case studies
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {projects
-                  .filter((p) => p.caseStudy && p.slug !== slug)
-                  .map((p) => (
-                    <a
-                      key={p.slug}
-                      href={`/work/${p.slug}`}
-                      className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
-                    >
-                      {p.title} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
-                  ))}
-              </div>
-            </section>
-          </div>
+            </div>
+          )}
         </Container>
       </main>
       <Footer />

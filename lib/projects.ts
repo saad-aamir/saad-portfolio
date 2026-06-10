@@ -21,16 +21,18 @@ export const projects: Project[] = [
   {
     slug: "dark-matter-copilot",
     title: "Dark Matter Co-Pilot",
-    tagline: "MCP-based AI assistant for studio operations",
+    tagline: "MCP server that gives Claude access to real studio data",
     description:
-      "An AI co-pilot built on Model Context Protocol (MCP) that integrates with Dark Matter Studio's internal tools (project management, client communication, and asset pipelines) to surface context and draft responses without leaving the workflow.",
-    status: "in-progress",
-    year: "2024",
-    role: "Lead Engineer",
-    stack: ["TypeScript", "MCP", "Claude API", "Next.js", "PostgreSQL"],
+      "An MCP server that connects Claude Desktop to my studio's operations data — past client work, live leads, voice docs, and outreach templates — so I can draft outreach, update leads, and query case studies through natural conversation.",
+    status: "shipped",
+    year: "2026",
+    role: "Solo Engineer",
+    stack: ["Python", "FastMCP", "SQLite", "Pydantic v2"],
     featured: true,
     caseStudy: "dark-matter-copilot",
-    links: {},
+    links: {
+      github: "https://github.com/saad-aamir/darkmatter-copilot",
+    },
   },
   {
     slug: "ai-resume-matcher",
@@ -51,17 +53,17 @@ export const projects: Project[] = [
   {
     slug: "studio-platform",
     title: "Dark Matter Studio",
-    tagline: "Agency site with custom CMS and client portal",
+    tagline: "Landing page for my web studio",
     description:
-      "The public-facing site and internal CMS for Dark Matter Studio. Built for speed, maintainability, and a design system the team can update without touching code.",
+      "The public site for Dark Matter Studio, my small web studio based in Pakistan. Headline: \"Websites That Turn Visitors Into Clients.\" Built for speed and conversion — no CMS, just clean Next.js and Tailwind.",
     status: "shipped",
     year: "2023",
     role: "Lead Engineer",
-    stack: ["Next.js", "TypeScript", "Tailwind", "Sanity", "Vercel"],
+    stack: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
     featured: false,
     caseStudy: null,
     links: {
-      live: "https://darkmatterstudio.io",
+      live: "https://darkmatterstudio.org",
     },
   },
   {

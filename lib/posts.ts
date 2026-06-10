@@ -6,9 +6,19 @@ export interface Post {
   tag: string;        // single topic label, e.g. "AI Safety"
   href: string;       // full Substack URL
   demoHref?: string;  // optional interactive demo URL
+  githubHref?: string; // optional GitHub repo URL
 }
 
 export const posts: Post[] = [
+  {
+    title: "Tools should return data, not language",
+    excerpt: "Most MCP tools return a sentence. They should return structured data and let the model decide what to say.", // TODO: confirm excerpt with Saad
+    date: "2026-06-11",
+    readTime: "5 min read",
+    tag: "MCP",
+    href: "https://beginnersmindbysaad.substack.com/p/tools-should-return-data-language",
+    githubHref: "https://github.com/saad-aamir/darkmatter-copilot",
+  },
   {
     title: "Why 23 strangers in a room are more interesting than they look",
     excerpt: "Walk into a room with 22 other people — there's a better than 50% chance two of you share a birthday. That sounds wrong.",
