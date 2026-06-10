@@ -12,7 +12,7 @@ export interface Post {
 export const posts: Post[] = [
   {
     title: "Tools should return data, not language",
-    excerpt: "Most MCP tools return a sentence. They should return structured data and let the model decide what to say.", // TODO: confirm excerpt with Saad
+    excerpt: "Tools should return data, Language models should return language.",
     date: "2026-06-11",
     readTime: "5 min read",
     tag: "MCP",
