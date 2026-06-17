@@ -37,14 +37,14 @@ export const projects: Project[] = [
   },
   {
     slug: "sycophancy-eval",
-    title: "Sycophancy Eval",
-    tagline: "Measuring how often LLMs reverse correct answers under pushback",
+    title: "Sycophancy Evals",
+    tagline: "Empirical eval of LLM dispositional behavior under user pushback",
     description:
-      "An empirical eval that measures sycophantic behavior in open-weight LLMs. Tested Llama 3.1 8B and Qwen 2.5 7B on 200 arithmetic questions across three pushback strengths. Built on Inspect, the eval framework from the UK AI Safety Institute.",
+      "A controlled experiment measuring how often two same-scale open-weight language models (Llama 3.1 8B, Qwen 2.5 7B) reverse correct answers under user pushback. Hand-validated LLM-as-judge, question-level bootstrap CIs, 1,800 conversations per model.",
     status: "shipped",
     year: "2026",
     role: "Solo Researcher",
-    stack: ["Python", "Inspect (AISI)", "Anthropic API", "Ollama", "Pydantic"],
+    stack: ["Python", "Inspect", "Anthropic API", "Ollama", "Pydantic"],
     featured: false,
     caseStudy: "sycophancy-eval",
     links: {},

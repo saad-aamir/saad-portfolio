@@ -11,10 +11,12 @@ import ProjectCopilot from "@/components/visuals/project-copilot";
 import ProjectMatcher from "@/components/visuals/project-matcher";
 import CopilotBody from "@/components/case-studies/copilot-body";
 import SycophancyBody from "@/components/case-studies/sycophancy-body";
+import ProjectSycophancy from "@/components/visuals/project-sycophancy";
 
 const visualMap: Record<string, React.ComponentType> = {
   "dark-matter-copilot": ProjectCopilot,
   "ai-resume-matcher": ProjectMatcher,
+  "sycophancy-eval": ProjectSycophancy,
 };
 
 const statusColor: Record<string, string> = {

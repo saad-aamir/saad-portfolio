@@ -8,12 +8,14 @@ import ProjectCopilot from "@/components/visuals/project-copilot";
 import ProjectMatcher from "@/components/visuals/project-matcher";
 import ProjectStudio from "@/components/visuals/project-studio";
 import ProjectSentiment from "@/components/visuals/project-sentiment";
+import ProjectSycophancy from "@/components/visuals/project-sycophancy";
 
 const visualMap: Record<string, React.ComponentType> = {
   "dark-matter-copilot": ProjectCopilot,
   "ai-resume-matcher": ProjectMatcher,
   "studio-platform": ProjectStudio,
   "sentiment-pipeline": ProjectSentiment,
+  "sycophancy-eval": ProjectSycophancy,
 };
 
 const statusLabel: Record<string, string> = {
@@ -112,6 +114,17 @@ function ProjectCard({ project }: { project: Project }) {
               style={{ fontSize: "13px" }}
             >
               Live <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </a>
+          )}
+          {project.links.substack && (
+            <a
+              href={project.links.substack}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-mute hover:text-text transition-colors inline-flex items-center gap-1"
+              style={{ fontSize: "13px" }}
+            >
+              Substack <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
             </a>
           )}
         </div>
