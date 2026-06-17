@@ -10,6 +10,7 @@ import { clsx } from "clsx";
 import ProjectCopilot from "@/components/visuals/project-copilot";
 import ProjectMatcher from "@/components/visuals/project-matcher";
 import CopilotBody from "@/components/case-studies/copilot-body";
+import SycophancyBody from "@/components/case-studies/sycophancy-body";
 
 const visualMap: Record<string, React.ComponentType> = {
   "dark-matter-copilot": ProjectCopilot,
@@ -130,6 +131,8 @@ export default async function CaseStudyPage({
         <Container>
           {slug === "dark-matter-copilot" ? (
             <CopilotBody githubHref={project.links.github} />
+          ) : slug === "sycophancy-eval" ? (
+            <SycophancyBody githubHref={project.links.github} substackHref={project.links.substack} />
           ) : (
             <div className="py-16 max-w-[720px] mx-auto space-y-16">
               {sections.map(({ eyebrow, content }) => (

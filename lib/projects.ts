@@ -14,6 +14,7 @@ export interface Project {
   links: {
     github?: string;
     live?: string;
+    substack?: string;
   };
 }
 
@@ -33,6 +34,20 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/saad-aamir/darkmatter-copilot",
     },
+  },
+  {
+    slug: "sycophancy-eval",
+    title: "Sycophancy Eval",
+    tagline: "Measuring how often LLMs reverse correct answers under pushback",
+    description:
+      "An empirical eval that measures sycophantic behavior in open-weight LLMs. Tested Llama 3.1 8B and Qwen 2.5 7B on 200 arithmetic questions across three pushback strengths. Built on Inspect, the eval framework from the UK AI Safety Institute.",
+    status: "shipped",
+    year: "2026",
+    role: "Solo Researcher",
+    stack: ["Python", "Inspect (AISI)", "Anthropic API", "Ollama", "Pydantic"],
+    featured: false,
+    caseStudy: "sycophancy-eval",
+    links: {},
   },
   {
     slug: "ai-resume-matcher",
