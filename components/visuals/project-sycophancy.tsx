@@ -1,7 +1,7 @@
 export default function ProjectSycophancy() {
   return (
     <svg
-      viewBox="0 0 560 320"
+      viewBox="0 0 560 230"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full h-full"
       aria-label="Sycophancy eval pipeline diagram"

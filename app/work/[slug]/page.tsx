@@ -11,12 +11,12 @@ import ProjectCopilot from "@/components/visuals/project-copilot";
 import ProjectMatcher from "@/components/visuals/project-matcher";
 import CopilotBody from "@/components/case-studies/copilot-body";
 import SycophancyBody from "@/components/case-studies/sycophancy-body";
-import ProjectSycophancy from "@/components/visuals/project-sycophancy";
+import ProjectSycophancyWide from "@/components/visuals/project-sycophancy-wide";
 
 const visualMap: Record<string, React.ComponentType> = {
   "dark-matter-copilot": ProjectCopilot,
   "ai-resume-matcher": ProjectMatcher,
-  "sycophancy-eval": ProjectSycophancy,
+  "sycophancy-eval": ProjectSycophancyWide,
 };
 
 const statusColor: Record<string, string> = {
@@ -122,7 +122,10 @@ export default async function CaseStudyPage({
         {Visual && (
           <div className="border-b border-border bg-bg-card">
             <Container>
-              <div className="py-12 max-w-3xl mx-auto" style={{ height: 360 }}>
+              <div
+                className={clsx("py-12", slug !== "sycophancy-eval" && "max-w-3xl mx-auto")}
+                style={{ height: slug === "sycophancy-eval" ? 420 : 360 }}
+              >
                 <Visual />
               </div>
             </Container>
