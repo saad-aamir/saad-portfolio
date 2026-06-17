@@ -11,6 +11,15 @@ export interface Post {
 
 export const posts: Post[] = [
   {
+    title: "Llama folds when you sound vague",
+    excerpt: "What happens when you push back on a correct answer without giving any new information.",
+    date: "2026-06-18",
+    readTime: "5 min read",
+    tag: "AI Safety",
+    href: "https://beginnersmindbysaad.substack.com/p/llama-folds-when-you-sound-vague",
+    githubHref: "https://github.com/saad-aamir/sycophancy-evals",
+  },
+  {
     title: "Tools should return data, Language models should return language",
     excerpt: "How I stopped trying to make my MCP tool write emails and let Claude do its job.",
     date: "2026-06-11",

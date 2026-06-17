@@ -47,7 +47,10 @@ export const projects: Project[] = [
     stack: ["Python", "Inspect", "Anthropic API", "Ollama", "Pydantic"],
     featured: false,
     caseStudy: "sycophancy-eval",
-    links: {},
+    links: {
+      github: "https://github.com/saad-aamir/sycophancy-evals",
+      substack: "https://beginnersmindbysaad.substack.com/p/llama-folds-when-you-sound-vague",
+    },
   },
   {
     slug: "ai-resume-matcher",
