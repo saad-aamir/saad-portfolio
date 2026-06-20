@@ -14,6 +14,9 @@
   --color-accent: #A78BFA;
   --color-accent-2: #C4B5FD;
   --color-accent-dim: #5C4A99;
+  --color-accent-b: #2DD4BF;
+  --color-accent-b-2: #5EEAD4;
+  --color-accent-b-dim: #0F766E;
   --color-warm: #F5C16C;
   --color-green: #6DDC9C;
   --color-pink: #F47DA0;
@@ -55,6 +58,9 @@
   --accent: #A78BFA;
   --accent-2: #C4B5FD;
   --accent-dim: #5C4A99;
+  --accent-b: #2DD4BF;
+  --accent-b-2: #5EEAD4;
+  --accent-b-dim: #0F766E;
   --warm: #F5C16C;
   --green: #6DDC9C;
   --pink: #F47DA0;

@@ -126,7 +126,7 @@ export default function Writing() {
                     {post.readTime}
                   </span>
                   <span
-                    className="font-mono px-2 py-0.5 rounded-full border border-border-2 text-accent-dim sm:mt-3"
+                    className="font-mono px-2 py-0.5 rounded-full border border-accent-b-dim/50 text-accent-b sm:mt-3"
                     style={{ fontSize: "10.5px" }}
                   >
                     {post.tag}

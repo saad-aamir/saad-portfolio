@@ -150,7 +150,7 @@ export default function Work() {
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, i) => (
+          {projects.filter((p) => !p.hidden).map((project, i) => (
             <Reveal key={project.slug} delay={(i % 4) as 0 | 1 | 2 | 3} className="h-full">
               <ProjectCard project={project} />
             </Reveal>

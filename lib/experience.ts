@@ -18,7 +18,7 @@ export const experience: ExperienceEntry[] = [
     endDate: "PRESENT",
     current: true,
     description:
-      "Running an independent web design and development studio. Shipping Next.js sites for clients across fitness, finance, and creative industries. Building Dark Matter Co-Pilot, a Python MCP server that exposes studio operations to Claude.",
+      "Running an independent web design and development studio. Shipping Next.js sites for clients across fitness, finance, and creative industries. I also build my own LLM tooling: Dark Matter Co-Pilot, a Python MCP server that exposes studio operations to Claude, and a sycophancy evaluation harness measuring how language models hold up under user pushback.",
     stack: ["Next.js", "TypeScript", "Python", "Claude API", "MCP", "PostgreSQL", "Vercel"],
   },
   {
@@ -29,8 +29,8 @@ export const experience: ExperienceEntry[] = [
     endDate: "DEC 2025",
     current: false,
     description:
-      "Owned full-stack feature development on Geotab Fleet Analytics: React dashboards backed by Node.js/TypeScript REST services, reducing query latency ~40%. Integrated LLM-backed features into the PRF Portal, cutting manual workflow steps by half. Deployed and maintained AWS infrastructure with CI/CD via GitHub Actions.",
-    stack: ["React", "Node.js", "TypeScript", "PostgreSQL", "AWS"],
+      "Owned full-stack feature development on Geotab Fleet Analytics: React dashboards backed by Node.js and TypeScript REST services, reducing query latency around 40%. Refactored the RAB and RDA Lighting portals from .NET 6 to .NET 8, introducing repository pattern and dependency injection to a legacy codebase. Integrated LLM-backed features into the PRF Portal, cutting manual workflow steps by half. Deployed and maintained AWS infrastructure with CI/CD via GitHub Actions.",
+    stack: ["React", "Node.js", "TypeScript", ".NET", "PostgreSQL", "AWS"],
   },
   {
     id: "zsystems",

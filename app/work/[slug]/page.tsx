@@ -5,13 +5,14 @@ import Nav from "@/components/ui/nav";
 import Footer from "@/components/ui/footer";
 import { projects, getProject, getCaseStudyProjects } from "@/lib/projects";
 import { caseStudies } from "@/lib/content";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { clsx } from "clsx";
 import ProjectCopilot from "@/components/visuals/project-copilot";
 import ProjectMatcher from "@/components/visuals/project-matcher";
 import CopilotBody from "@/components/case-studies/copilot-body";
 import SycophancyBody from "@/components/case-studies/sycophancy-body";
 import ProjectSycophancyWide from "@/components/visuals/project-sycophancy-wide";
+import { ArrowLeft } from "lucide-react";
 
 const visualMap: Record<string, React.ComponentType> = {
   "dark-matter-copilot": ProjectCopilot,
@@ -135,7 +136,7 @@ export default async function CaseStudyPage({
         {/* Case study body */}
         <Container>
           {slug === "dark-matter-copilot" ? (
-            <CopilotBody githubHref={project.links.github} />
+            <CopilotBody githubHref={project.links.github} substackHref={project.links.substack} />
           ) : slug === "sycophancy-eval" ? (
             <SycophancyBody githubHref={project.links.github} substackHref={project.links.substack} />
           ) : (
@@ -201,7 +202,7 @@ export default async function CaseStudyPage({
                 </p>
                 <div className="flex flex-wrap gap-3">
                   {projects
-                    .filter((p) => p.caseStudy && p.slug !== slug)
+                    .filter((p) => p.caseStudy && !p.hidden && p.slug !== slug)
                     .map((p) => (
                       <a
                         key={p.slug}

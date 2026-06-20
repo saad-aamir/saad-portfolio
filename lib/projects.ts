@@ -10,6 +10,7 @@ export interface Project {
   role: string;
   stack: string[];
   featured: boolean;
+  hidden?: boolean;
   caseStudy: string | null;
   links: {
     github?: string;
@@ -24,7 +25,7 @@ export const projects: Project[] = [
     title: "Dark Matter Co-Pilot",
     tagline: "MCP server that gives Claude access to real studio data",
     description:
-      "An MCP server that connects Claude Desktop to my studio's operations data — past client work, live leads, voice docs, and outreach templates — so I can draft outreach, update leads, and query case studies through natural conversation.",
+      "An MCP server that connects Claude Desktop to my studio's operations data (past client work, live leads, voice docs, and outreach templates), so I can draft outreach, update leads, and query case studies through natural conversation.",
     status: "shipped",
     year: "2026",
     role: "Solo Engineer",
@@ -33,6 +34,7 @@ export const projects: Project[] = [
     caseStudy: "dark-matter-copilot",
     links: {
       github: "https://github.com/saad-aamir/darkmatter-copilot",
+      substack: "https://beginnersmindbysaad.substack.com/p/tools-should-return-data-language",
     },
   },
   {
@@ -73,7 +75,7 @@ export const projects: Project[] = [
     title: "Dark Matter Studio",
     tagline: "Landing page for my web studio",
     description:
-      "The public site for Dark Matter Studio, my small web studio based in Pakistan. Headline: \"Websites That Turn Visitors Into Clients.\" Built for speed and conversion — no CMS, just clean Next.js and Tailwind.",
+      "The public site for Dark Matter Studio, my small web studio based in Pakistan. Headline: \"Websites That Turn Visitors Into Clients.\" Built for speed and conversion. No CMS, just clean Next.js and Tailwind.",
     status: "shipped",
     year: "2023",
     role: "Lead Engineer",
@@ -86,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sentiment-pipeline",
+    hidden: true,
     title: "Sentiment Pipeline",
     tagline: "Real-time social sentiment aggregation",
     description:

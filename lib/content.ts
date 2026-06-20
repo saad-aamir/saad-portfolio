@@ -49,7 +49,7 @@ export const caseStudies: Record<
       ],
     },
     result: {
-      text: "When complete, asking Claude \"draft a proposal for the new wedding photographer lead — portfolio site, mid-complexity\" will produce a grounded, on-brand proposal in seconds, referencing the right case studies, using my actual pricing, in my voice. Goal: turn 30-minute proposal drafts into 3-minute reviews, and stop letting follow-ups slip.",
+      text: "When complete, asking Claude \"draft a proposal for the new wedding photographer lead, portfolio site, mid-complexity\" will produce a grounded, on-brand proposal in seconds, referencing the right case studies, using my actual pricing, in my voice. Goal: turn 30-minute proposal drafts into 3-minute reviews, and stop letting follow-ups slip.",
     },
   },
   "ai-resume-matcher": {

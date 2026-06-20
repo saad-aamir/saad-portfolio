@@ -30,7 +30,7 @@ export const posts: Post[] = [
   },
   {
     title: "Why 23 strangers in a room are more interesting than they look",
-    excerpt: "Walk into a room with 22 other people — there's a better than 50% chance two of you share a birthday. That sounds wrong.",
+    excerpt: "Walk into a room with 22 other people. There's a better than 50% chance two of you share a birthday. That sounds wrong.",
     date: "2026-05-27",
     readTime: "5 min read",
     tag: "Probability",

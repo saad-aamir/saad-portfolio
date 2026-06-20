@@ -55,7 +55,7 @@ export default function Nav() {
                 {link.label}
                 {/* Underline — grows from left on hover */}
                 <span
-                  className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-300 ease-out group-hover:w-full"
+                  className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-b transition-all duration-300 ease-out group-hover:w-full"
                   aria-hidden="true"
                 />
               </a>

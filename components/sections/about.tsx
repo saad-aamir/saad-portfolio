@@ -39,8 +39,8 @@ function PortraitCard() {
 
 const quickLinks = [
   { label: "Download CV", href: "/saad-aamir-cv.pdf", icon: true },
-  { label: "GitHub", href: "https://github.com/saadaamir", icon: false },
-  { label: "Studio", href: "https://darkmatterstudio.io", icon: false },
+  { label: "GitHub", href: "https://github.com/saad-aamir", icon: false },
+  { label: "Studio", href: "https://www.darkmatterstudio.org", icon: false },
 ];
 
 export default function About() {
@@ -72,7 +72,7 @@ export default function About() {
                   I&apos;m a software engineer based in{" "}
                   <span className="text-accent-2">Rawalpindi, Pakistan</span>. I
                   graduated from NUST in 2023 and spent the next two and a half
-                  years at MobileLIVE (a Canadian tech consultancy), building
+                  years at MobileLIVE, a Canadian tech consultancy, building
                   full-stack features across analytics dashboards, internal
                   portals, and AI-integrated workflows.
                 </p>
@@ -82,20 +82,23 @@ export default function About() {
                 <p className="text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
                   In early 2026 I started{" "}
                   <span className="text-accent-2">Dark Matter Studio</span>, an
-                  independent web design and development practice. Right now
-                  I&apos;m building Dark Matter Co-Pilot, a Python MCP server
-                  that lets Claude reach into the studio&apos;s pipeline as typed
-                  tools.
+                  independent web design and development practice. Most of my own
+                  work these days is on LLM systems, the plumbing that makes model
+                  integrations reliable. I built Dark Matter Co-Pilot, a Python MCP
+                  server that lets Claude reach into the studio&apos;s pipeline as
+                  typed tools. I also built a sycophancy evaluation harness with a
+                  hand-validated judge and proper statistics behind it.
                 </p>
               </Reveal>
 
               <Reveal delay={4}>
                 <p className="text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
-                  The direction I&apos;m moving in is{" "}
-                  <span className="text-accent-2">empirical AI safety research</span>{" "}
-                  : mechanistic interpretability, evaluations, scalable oversight.
-                  The kind of work that probes what models actually compute versus
-                  what they appear to do.
+                  What pulls me most is{" "}
+                  <span className="text-accent-2">empirical work on how models behave</span>.
+                  Building evaluations carefully, measuring what models actually do
+                  instead of what they look like they&apos;re doing, and staying honest
+                  about what the data can support. That&apos;s the direction I&apos;m
+                  steering toward, one project at a time.
                 </p>
               </Reveal>
             </div>

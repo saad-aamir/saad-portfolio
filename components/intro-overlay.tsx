@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
+
+const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const NAME = "Saad Aamir";
 const TYPING_SPEED = 80;
@@ -20,8 +23,9 @@ export default function IntroOverlay() {
   const [swooshTransform, setSwooshTransform] = useState("none");
   const nameRef = useRef<HTMLSpanElement>(null);
 
-  // On mount: skip animation if already played this session
-  useEffect(() => {
+  // On mount: skip animation if already played this session.
+  // useIsomorphicLayoutEffect fires before paint so there's no visible flash.
+  useIsomorphicLayoutEffect(() => {
     if (introDone || sessionStorage.getItem(SESSION_KEY)) {
       introDone = true;
       setPhase("gone");

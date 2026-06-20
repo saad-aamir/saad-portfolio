@@ -8,6 +8,21 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
       <AmbientGrid />
 
+      {/* Atmospheric teal glow — sits behind content, left side behind heading */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: "-5%",
+          width: "55%",
+          height: "60%",
+          background: "radial-gradient(ellipse at 30% 40%, rgba(45,212,191,0.07) 0%, transparent 65%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
+
       <Container className="relative z-10 py-[110px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_300px] lg:gap-20 items-center">
 

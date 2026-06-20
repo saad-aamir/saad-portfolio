@@ -22,7 +22,6 @@ export default function Home() {
         <About />
         <Experience />
         <Work />
-        <Stats />
         <Toolkit />
         <Writing />
         <Contact />

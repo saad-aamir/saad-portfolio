@@ -2,13 +2,29 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const MESSAGES = [
-  { main: "Hello there!",          sub: "Welcome to Saad's portfolio."  },
-  { main: "Beep boop.",            sub: "Nice to meet you!"             },
-  { main: "I track your cursor.",  sub: "Keeps me entertained."         },
-  { main: "Still here!",           sub: "Click me again."               },
-  { main: "Built by Saad.",        sub: "With a little help from me."   },
-  { main: "Psst —",               sub: "Check the contact section!"    },
+const GREETING = { main: "Hello there!", sub: "Welcome to Saad's portfolio." };
+
+const NORMAL = [
+  { main: "Seen the sycophancy eval?",        sub: "Work section. It's the fun one."         },
+  { main: "Saad writes too.",                 sub: "Beginner's Mind on Substack."            },
+  { main: "Curious what he's building?",      sub: "Co-Pilot's in the work section."         },
+  { main: "I track your cursor.",             sub: "Keeps me entertained."                   },
+  { main: "Saad told me to be charming.",     sub: "Still working on it."                    },
+  { main: "I've been clicked before.",        sub: "You're not special. Kidding."            },
+  { main: "This counts as engagement.",       sub: "Saad will be thrilled."                  },
+  { main: "Built by Saad.",                   sub: "With a little help from me."             },
+];
+
+const ESCALATED = [
+  { main: "Still clicking, huh.",             sub: "I respect the dedication."               },
+  { main: "Most people stop at three.",       sub: "You are not most people."                },
+  { main: "Are you okay?",                    sub: "Genuinely asking."                       },
+  { main: "There's no secret level.",         sub: "...okay there's one more."               },
+];
+
+const SECRET = [
+  { main: "You win. Go hire Saad.",           sub: "That was the secret."                    },
+  { main: "Seriously though.",                sub: "saadaamir473@gmail.com"                  },
 ];
 
 export default function RobotMascot() {
@@ -20,16 +36,15 @@ export default function RobotMascot() {
   const [blinking,  setBlinking]  = useState(false);
   const [proximity, setProximity] = useState(0);
   const [excited,   setExcited]   = useState(false);
-  const [bubble,    setBubble]    = useState({ idx: 0, visible: false });
+  const [bubble,    setBubble]    = useState(false);
+  const [message,   setMessage]   = useState(GREETING);
 
   // Show a message then auto-hide
-  const popBubble = (idx: number, ms: number) => {
-    setBubble({ idx, visible: true });
+  const popMessage = (msg: { main: string; sub: string }, ms: number) => {
+    setMessage(msg);
+    setBubble(true);
     clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(
-      () => setBubble((b) => ({ ...b, visible: false })),
-      ms
-    );
+    timerRef.current = setTimeout(() => setBubble(false), ms);
   };
 
   // Cursor tracking
@@ -67,7 +82,7 @@ export default function RobotMascot() {
 
   // Greeting on first load
   useEffect(() => {
-    const t = setTimeout(() => popBubble(0, 4500), 1500);
+    const t = setTimeout(() => popMessage(GREETING, 4500), 1500);
     return () => { clearTimeout(t); clearTimeout(timerRef.current); };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -76,9 +91,25 @@ export default function RobotMascot() {
     setExcited(true);
     setTimeout(() => setExcited(false), 700);
     clickCount.current += 1;
-    // Cycle through messages 1–5 (skip greeting at index 0)
-    const idx = (clickCount.current % (MESSAGES.length - 1)) + 1;
-    popBubble(idx, 3000);
+    const n = clickCount.current;
+
+    let msg: { main: string; sub: string };
+    let duration: number;
+    const secretEnd = 12 + SECRET.length;
+    if (n >= secretEnd) {
+      msg = NORMAL[(n - secretEnd) % NORMAL.length];
+      duration = 3000;
+    } else if (n >= 12) {
+      msg = SECRET[n - 12];
+      duration = 5000;
+    } else if (n >= 5) {
+      msg = ESCALATED[(n - 5) % ESCALATED.length];
+      duration = 3500;
+    } else {
+      msg = NORMAL[(n - 1) % NORMAL.length];
+      duration = 3000;
+    }
+    popMessage(msg, duration);
   };
 
   const A  = "#A78BFA", A2 = "#C4B5FD", AD = "#5C4A99";
@@ -107,8 +138,8 @@ export default function RobotMascot() {
           bottom:     "calc(100% + 14px)",
           right:      0,
           width:      "192px",
-          opacity:    bubble.visible ? 1 : 0,
-          transform:  bubble.visible ? "translateY(0) scale(1)" : "translateY(8px) scale(0.93)",
+          opacity:    bubble ? 1 : 0,
+          transform:  bubble ? "translateY(0) scale(1)" : "translateY(8px) scale(0.93)",
           transition: "opacity 0.28s ease, transform 0.28s ease",
           pointerEvents: "none",
         }}
@@ -123,10 +154,10 @@ export default function RobotMascot() {
           }}
         >
           <p style={{ fontSize: "13px", fontWeight: 500, color: "#ECEDEF", marginBottom: "3px", lineHeight: 1.3 }}>
-            {MESSAGES[bubble.idx].main}
+            {message.main}
           </p>
           <p style={{ fontSize: "11px", color: "#5C6470", fontFamily: "var(--font-jetbrains-mono)", lineHeight: 1.45 }}>
-            {MESSAGES[bubble.idx].sub}
+            {message.sub}
           </p>
 
           {/* Tail — points down toward the robot */}

@@ -51,8 +51,10 @@ function Screenshot({
 
 export default function CopilotBody({
   githubHref,
+  substackHref,
 }: {
   githubHref?: string;
+  substackHref?: string;
 }) {
   return (
     <div className="py-16 max-w-[720px] mx-auto space-y-16">
@@ -158,11 +160,11 @@ export default function CopilotBody({
       </Section>
 
       {/* Process */}
-      <Section label="05 / On using Claude to build this">
+      {/* <Section label="05 / On using Claude to build this">
         <p className={`${prose} mb-4`}>
           I used Claude as a pair programmer through most of the build. Long chat sessions
           where I&apos;d decide what to build and how, and Claude would help me write it,
-          debug it, and think through patterns I hadn&apos;t worked with before — like
+          debug it, and think through patterns I hadn&apos;t worked with before, like
           Pydantic v2 and the MCP protocol internals.
         </p>
         <p className={`${prose} mb-4`}>
@@ -173,10 +175,10 @@ export default function CopilotBody({
           I&apos;m not going to hide that. It&apos;s how I work now and it&apos;s how a lot
           of engineering is going to look soon.
         </p>
-      </Section>
+      </Section> */}
 
       {/* What's next */}
-      <Section label="06 / What's next">
+      <Section label="05 / What's next">
         <p className={`${prose} mb-4`}>
           Next thing I want to add is a proposal generator for warm leads. Same architecture
           as the outreach drafter, just more context and a more formal output. I&apos;ll
@@ -190,17 +192,29 @@ export default function CopilotBody({
       </Section>
 
       {/* Links */}
-      {githubHref && (
+      {(githubHref || substackHref) && (
         <Section label="Links">
           <div className="flex flex-wrap gap-3">
-            <a
-              href={githubHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
-            >
-              GitHub <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-            </a>
+            {githubHref && (
+              <a
+                href={githubHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
+              >
+                GitHub <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            )}
+            {substackHref && (
+              <a
+                href={substackHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-text-dim hover:text-text transition-colors border border-border rounded-full px-4 py-2"
+              >
+                Related post <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </a>
+            )}
           </div>
           <p className="font-mono text-xs text-text-mute mt-4">
             Built with Python · FastMCP · SQLite · Pydantic v2

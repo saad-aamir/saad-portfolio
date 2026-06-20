@@ -37,12 +37,7 @@ export default function Toolkit() {
                   {category.tools.map((tool) => (
                     <span
                       key={tool.name}
-                      className={clsx(
-                        "font-mono rounded-md border px-3 py-1.5 transition-colors",
-                        tool.primary
-                          ? "text-text border-border-2 bg-bg-1"
-                          : "text-text-mute border-border bg-bg-card"
-                      )}
+                      className="toolkit-pill font-mono rounded-md border border-border bg-bg-card px-3 py-1.5 text-text transition-colors duration-200 cursor-default"
                       style={{ fontSize: "13.5px" }}
                     >
                       {tool.name}
@@ -54,6 +49,14 @@ export default function Toolkit() {
           ))}
         </div>
       </Container>
+
+      <style>{`
+        .toolkit-pill:hover {
+          color: var(--accent);
+          border-color: var(--accent-dim);
+          box-shadow: 0 0 10px 1px rgba(167, 139, 250, 0.25);
+        }
+      `}</style>
     </section>
   );
 }

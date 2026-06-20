@@ -2,11 +2,10 @@ import Container from "@/components/ui/container";
 import Reveal from "@/components/ui/reveal";
 import AmbientGrid from "@/components/visuals/ambient-grid";
 import HeroRobot from "@/components/visuals/hero-robot";
-import { Mail, GitBranch, Link, FileText } from "lucide-react";
+import { Mail, GitBranch, FileText } from "lucide-react";
 
 const socials = [
-  { label: "GitHub",   href: "https://github.com/saadaamir",      icon: GitBranch },
-  { label: "LinkedIn", href: "https://linkedin.com/in/saadaamir", icon: Link },
+  { label: "GitHub",   href: "https://github.com/saad-aamir",      icon: GitBranch },
   { label: "CV",       href: "/saad-aamir-cv.pdf",               icon: FileText },
 ];
 
@@ -19,6 +18,22 @@ export default function Contact() {
       style={{ overflow: "visible" }}
     >
       <AmbientGrid />
+
+      {/* Atmospheric teal glow — centered behind the contact card */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          top: "30%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "700px",
+          height: "400px",
+          background: "radial-gradient(ellipse at center, rgba(45,212,191,0.06) 0%, transparent 70%)",
+          pointerEvents: "none",
+          zIndex: 0,
+        }}
+      />
 
       <Container className="relative z-10">
         <div className="flex flex-col items-center">
@@ -83,9 +98,15 @@ export default function Contact() {
 
               <Reveal delay={2}>
                 <div className="flex items-center justify-center gap-4">
-                  <span className="font-mono text-text-mute" style={{ fontSize: "12.5px" }}>
+                  <a
+                    href="https://www.darkmatterstudio.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-text-mute hover:text-text transition-colors"
+                    style={{ fontSize: "12.5px" }}
+                  >
                     Dark Matter Studio
-                  </span>
+                  </a>
                   <span className="text-border-2">·</span>
                   {socials.map((s) => {
                     const Icon = s.icon;
