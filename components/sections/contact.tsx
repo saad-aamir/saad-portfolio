@@ -27,7 +27,7 @@ export default function Contact() {
           top: "30%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "700px",
+          width: "min(700px, 100%)",
           height: "400px",
           background: "radial-gradient(ellipse at center, rgba(45,212,191,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
