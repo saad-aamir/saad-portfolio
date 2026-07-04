@@ -42,7 +42,7 @@ export default function Hero() {
             {/* Heading */}
             <h1
               className="mb-6 font-semibold leading-[1.05] tracking-[-0.035em]"
-              style={{ fontSize: "68px" }}
+              style={{ fontSize: "clamp(34px, 9.5vw, 68px)" }}
             >
               I&apos;m{" "}
               <span

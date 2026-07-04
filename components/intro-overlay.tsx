@@ -106,7 +106,8 @@ export default function IntroOverlay() {
           ref={nameRef}
           style={{
             fontFamily: "var(--font-sans)",
-            fontSize: "68px",
+            // Must match the hero h1 exactly so the swoosh lands 1:1 at any viewport
+            fontSize: "clamp(34px, 9.5vw, 68px)",
             fontWeight: 600,
             lineHeight: 1.05,
             letterSpacing: "-0.035em",
@@ -126,7 +127,7 @@ export default function IntroOverlay() {
             style={{
               display: "inline-block",
               width: "3px",
-              height: "62px",
+              height: "calc(clamp(34px, 9.5vw, 68px) * 0.9)",
               background: "#A78BFA",
               borderRadius: "2px",
               marginLeft: "5px",
