@@ -36,6 +36,7 @@ export default function RobotMascot() {
   const [blinking,  setBlinking]  = useState(false);
   const [proximity, setProximity] = useState(0);
   const [excited,   setExcited]   = useState(false);
+  const [hasClicked, setHasClicked] = useState(false);
   const [bubble,    setBubble]    = useState(false);
   const [message,   setMessage]   = useState(GREETING);
 
@@ -88,6 +89,7 @@ export default function RobotMascot() {
   }, []);
 
   const handleClick = () => {
+    setHasClicked(true);
     setExcited(true);
     setTimeout(() => setExcited(false), 700);
     clickCount.current += 1;
@@ -130,6 +132,15 @@ export default function RobotMascot() {
         transition: "filter 0.3s ease",
       }}
     >
+      {/* Click hint — faint until the cursor gets close, gone after first click */}
+      <span
+        className="rm-hint"
+        aria-hidden="true"
+        style={{ opacity: hasClicked ? 0 : proximity > 0.45 ? 1 : 0.75 }}
+      >
+        {"// click me"}
+      </span>
+
       {/* ── Speech bubble ── */}
       <div
         aria-live="polite"
@@ -246,6 +257,27 @@ export default function RobotMascot() {
       </svg>
 
       <style>{`
+        .rm-hint {
+          position: absolute;
+          right: calc(100% + 10px);
+          top: 28px;
+          white-space: nowrap;
+          font-family: var(--font-jetbrains-mono);
+          font-size: 11px;
+          letter-spacing: 0.04em;
+          color: #A78BFA;
+          background: #14161A;
+          border: 1px solid #23272D;
+          border-radius: 999px;
+          padding: 4px 11px;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+          animation: rmHintBob 2.4s ease-in-out infinite;
+        }
+        @keyframes rmHintBob {
+          0%, 100% { transform: translateY(0);    }
+          50%      { transform: translateY(-4px); }
+        }
         .robot-float {
           animation: robotFloat 3.8s ease-in-out infinite;
           will-change: transform;
@@ -256,6 +288,7 @@ export default function RobotMascot() {
         }
         @media (prefers-reduced-motion: reduce) {
           .robot-float { animation: none; }
+          .rm-hint     { animation: none; }
         }
       `}</style>
     </div>

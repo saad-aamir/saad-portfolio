@@ -9,6 +9,29 @@ export default function HeroRobot() {
   const [pupil,  setPupil]  = useState({ x: 0, y: 0 });
   const [blinking,  setBlinking]  = useState(false);
   const [proximity, setProximity] = useState(0);
+  const [poked,  setPoked]  = useState(false);
+  const [frenzy, setFrenzy] = useState(false);
+  const [hasPoked, setHasPoked] = useState(false);
+  const pokeTimes = useRef<number[]>([]);
+  const pokeReset = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const onPoke = () => {
+    if (pokeReset.current) clearTimeout(pokeReset.current);
+    setPoked(true);
+    setHasPoked(true);
+    pokeReset.current = setTimeout(() => setPoked(false), 650);
+    const now = Date.now();
+    pokeTimes.current = [...pokeTimes.current.filter((t) => now - t < 2500), now];
+    if (pokeTimes.current.length >= 5) {
+      pokeTimes.current = [];
+      setFrenzy(true);
+      setTimeout(() => setFrenzy(false), 1500);
+    }
+  };
+
+  useEffect(() => () => {
+    if (pokeReset.current) clearTimeout(pokeReset.current);
+  }, []);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -50,7 +73,20 @@ export default function HeroRobot() {
   const p  = proximity;
 
   return (
-    <div ref={ref} className="select-none hr-wrap" style={{ overflow: "visible" }} aria-hidden="true">
+    <div
+      ref={ref}
+      onClick={onPoke}
+      className={`select-none cursor-pointer hr-wrap${poked ? " hr-hop" : ""}`}
+      style={{ overflow: "visible", position: "relative" }}
+      aria-hidden="true"
+    >
+      {/* Poke hint — faint until the cursor gets close, gone after first poke */}
+      <span
+        className="hr-hint font-mono"
+        style={{ opacity: hasPoked ? 0 : p > 0.45 ? 1 : 0.45 }}
+      >
+        {"// poke me"}
+      </span>
       {/*
         viewBox 220×260, displayed 200×236.
         Thrusters: two straight-down nozzle bells at x=74 and x=146.
@@ -92,6 +128,9 @@ export default function HeroRobot() {
             makes scaleY stretch/shrink downward from the nozzle exit.
         */}
 
+        {/* Burst group: one-shot stretch from the nozzle line on poke */}
+        <g className={poked ? "hr-burst" : undefined} style={{ transformOrigin: "110px 244px" }}>
+
         {/* Left burner  — cx=74 */}
         {/* outer violet corona */}
         <ellipse cx="74" cy="294" rx="18" ry="50" fill={A}  opacity="0.18"
@@ -115,6 +154,8 @@ export default function HeroRobot() {
           className="hr-fc hr-d3"/>
         <ellipse cx="146" cy="249" rx="4"  ry="5"  fill="#fff" opacity="0.90"
           className="hr-fi hr-d2"/>
+
+        </g>
 
         {/* ── BODY + ARMS (parallax) ─────────────────────────────────── */}
         <g transform={`translate(${body.x},${body.y})`}>
@@ -208,8 +249,12 @@ export default function HeroRobot() {
         {/* ── HEAD (most parallax) ─────────────────────────────────── */}
         <g transform={`translate(${head.x},${head.y})`}>
           <line x1="110" y1="4" x2="110" y2="22" stroke={AD} strokeWidth="1.5" strokeLinecap="round"/>
-          <circle cx="110" cy="4" r="3.5" fill={p > 0.5 ? A : AD} style={{ transition: "fill 0.3s" }}/>
-          {p > 0.35 && (
+          <circle cx="110" cy="4" r="3.5" fill={frenzy ? PK : p > 0.5 ? A : AD} style={{ transition: "fill 0.3s" }}/>
+          {frenzy && (
+            <circle cx="110" cy="4" r="7" fill="none" stroke={PK}
+              strokeWidth="1" className="hr-ping"/>
+          )}
+          {!frenzy && p > 0.35 && (
             <circle cx="110" cy="4" r="6.5" fill="none" stroke={A}
               strokeWidth="0.8" opacity={p * 0.6}/>
           )}
@@ -230,7 +275,15 @@ export default function HeroRobot() {
           <circle cx="98"  cy="57" r="12" fill={B2} stroke={AD} strokeWidth="1"/>
           <circle cx="122" cy="57" r="12" fill={B2} stroke={AD} strokeWidth="1"/>
 
-          {blinking ? (
+          {poked || frenzy ? (
+            <>
+              {/* happy ^ ^ eyes */}
+              <path d="M90,60 Q98,51 106,60" stroke={frenzy ? PK : A}
+                strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+              <path d="M114,60 Q122,51 130,60" stroke={frenzy ? PK : A}
+                strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+            </>
+          ) : blinking ? (
             <>
               <rect x="89"  y="55" width="18" height="3.5" rx="1.75" fill={A}/>
               <rect x="113" y="55" width="18" height="3.5" rx="1.75" fill={A}/>
@@ -317,6 +370,50 @@ export default function HeroRobot() {
         .hr-d2 { animation-delay: 0.09s; }
         .hr-d3 { animation-delay: 0.14s; }
 
+        /* Poke hint — sits to the right of the head, bobs gently */
+        .hr-hint {
+          position: absolute;
+          top: 40px;
+          left: calc(100% + 10px);
+          white-space: nowrap;
+          font-size: 11.5px;
+          letter-spacing: 0.04em;
+          color: #A78BFA;
+          pointer-events: none;
+          transition: opacity 0.4s ease;
+          animation: hrHintBob 2.4s ease-in-out infinite;
+        }
+        @keyframes hrHintBob {
+          0%, 100% { transform: translateY(0);    }
+          50%      { transform: translateY(-5px); }
+        }
+
+        /* Poke: one-shot hop on the wrapper (svg keeps its own float) */
+        .hr-hop { animation: hrHop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1); }
+        @keyframes hrHop {
+          0%, 100% { transform: translateY(0);     }
+          35%      { transform: translateY(-16px); }
+          65%      { transform: translateY(3px);   }
+        }
+
+        /* Poke: flame burst — stretches both plumes down from the nozzle line */
+        .hr-burst { animation: hrBurst 0.6s cubic-bezier(0.2, 0.9, 0.3, 1); }
+        @keyframes hrBurst {
+          0%, 100% { transform: scale(1, 1);       }
+          30%      { transform: scale(1.12, 1.55); }
+        }
+
+        /* Frenzy: expanding ring on the antenna light */
+        .hr-ping {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: hrPing 0.45s ease-out infinite;
+        }
+        @keyframes hrPing {
+          from { transform: scale(0.5); opacity: 0.9; }
+          to   { transform: scale(2.2); opacity: 0;   }
+        }
+
         /* Rope pulses with float */
         .hr-rope { animation: hrRope 4s ease-in-out infinite; }
         @keyframes hrRope {
@@ -328,6 +425,8 @@ export default function HeroRobot() {
           .hr-wrap svg                { animation: none; }
           .hr-fi,.hr-fc,.hr-fm,.hr-fo { animation: none; }
           .hr-rope                    { animation: none; }
+          .hr-hop,.hr-burst,.hr-ping  { animation: none; }
+          .hr-hint                    { animation: none; }
         }
       `}</style>
     </div>
