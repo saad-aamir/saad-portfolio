@@ -86,5 +86,6 @@ export const experience: ExperienceEntry[] = [
     current: false,
     description:
       "Final year project: indoor navigation for our campus using AR.",
+    stack: ["Unity", "ARCore", "C#"],
   },
 ];
