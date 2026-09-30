@@ -27,10 +27,10 @@ function PortraitCard() {
       {/* Bottom tag */}
       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between z-10">
         <span className="font-mono text-text-mute bg-bg/70 rounded px-1.5 py-0.5 backdrop-blur-sm" style={{ fontSize: "10px" }}>
-          Rawalpindi, PK
+          Dresden, DE
         </span>
         <span className="font-mono text-text-mute bg-bg/70 rounded px-1.5 py-0.5 backdrop-blur-sm" style={{ fontSize: "10px" }}>
-          @saadaamir
+          @saad-aamir
         </span>
       </div>
     </div>
@@ -70,35 +70,38 @@ export default function About() {
               <Reveal delay={2}>
                 <p className="text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
                   I&apos;m a software engineer based in{" "}
-                  <span className="text-accent-2">Rawalpindi, Pakistan</span>. I
-                  graduated from NUST in 2023 and spent the next two and a half
-                  years at MobileLIVE, a Canadian tech consultancy, building
-                  full-stack features across analytics dashboards, internal
-                  portals, and AI-integrated workflows.
+                  <span className="text-accent-2">Dresden, Germany</span>. I
+                  graduated from NUST in 2023 and spent the next three years at
+                  ZSystems (MobileLIVE, now ML Arteka), a Canadian consultancy,
+                  designing and owning backends, modernizing .NET codebases other
+                  people wrote, and shipping features end to end, including three
+                  LLM-backed ones running in a production hiring portal.
                 </p>
               </Reveal>
 
               <Reveal delay={3}>
                 <p className="text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
-                  In early 2026 I started{" "}
-                  <span className="text-accent-2">Dark Matter Studio</span>, an
-                  independent web design and development practice. Most of my own
-                  work these days is on LLM systems, the plumbing that makes model
-                  integrations reliable. I built Dark Matter Co-Pilot, a Python MCP
-                  server that lets Claude reach into the studio&apos;s pipeline as
-                  typed tools. I also built a sycophancy evaluation harness with a
-                  hand-validated judge and proper statistics behind it.
+                  Alongside that I run{" "}
+                  <span className="text-accent-2">Dark Matter Studio</span>,
+                  independent web and LLM work. Automating its own CRM is where
+                  Dark Matter Co-Pilot came from: a Model Context Protocol (MCP)
+                  server giving an AI assistant structured access to real
+                  operations data through ten typed tools over SQLite, with
+                  Pydantic v2 as the single source of truth for rows, schemas and
+                  responses. I use it daily.
                 </p>
               </Reveal>
 
               <Reveal delay={4}>
                 <p className="text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
-                  What pulls me most is{" "}
-                  <span className="text-accent-2">empirical work on how models behave</span>.
-                  Building evaluations carefully, measuring what models actually do
-                  instead of what they look like they&apos;re doing, and staying honest
-                  about what the data can support. That&apos;s the direction I&apos;m
-                  steering toward, one project at a time.
+                  The other half of my time goes to{" "}
+                  <span className="text-accent-2">empirical ML</span>: whether
+                  reported results survive being measured properly. A co-authored
+                  preprint on the capitulation direction that reported a null when
+                  the positive control passed and the direction didn&apos;t. A
+                  segmentation audit where seed alone moved the score more than
+                  most published improvements. Starting an M.Sc. at TU Dresden in
+                  October 2026.
                 </p>
               </Reveal>
             </div>

@@ -79,10 +79,10 @@ export default function Contact() {
               </h2>
 
               <p className="mb-8 text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
-                Open to research collaborations, consulting engagements, and
-                senior engineering roles, especially anything adjacent to AI
-                safety or applied ML infrastructure. Dark Matter Studio is also
-                available for select client projects.
+                Open to AI/ML and software engineering roles, research
+                collaborations, and consulting engagements. Anywhere backends,
+                LLM systems, and careful measurement overlap. Dark Matter Studio
+                is also available for select client projects.
               </p>
 
               <Reveal delay={1}>

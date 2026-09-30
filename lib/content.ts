@@ -1,22 +1,23 @@
-// TODO: copy from Saad — all biographical text below is placeholder until reviewed
+// Long-form copy. The rendered About section lives in components/sections/about.tsx;
+// this export is the same copy in data form.
 
 export const about = {
   paragraphs: [
-    "I'm a software engineer based in Rawalpindi, currently working at Dark Matter Studio where I build client-facing products and internal tools. My work sits at the intersection of full-stack engineering and applied AI; lately, that mostly means designing systems that put language models in useful, reliable contact with existing workflows.",
-    "I'm moving toward AI safety research. The thing that pulls me there isn't anxiety about AI going wrong in science-fiction ways; it's the more immediate question of how you build systems that behave predictably when the inputs are messy and the stakes matter. That's an engineering problem before it's a philosophical one, and it's the kind I find worth spending serious time on.",
-    "Outside of work, I think about alignment literature, run, and occasionally pretend I'll finish the books on my shelf. I grew up in Rawalpindi and spent four years at NUST studying software engineering; the research lab there is where I first got serious about ML.",
+    "I'm a software engineer based in Dresden, Germany. I graduated from NUST in 2023 and spent the next three years at ZSystems (MobileLIVE, now ML Arteka), a Canadian consultancy, designing and owning backends, modernizing .NET codebases other people wrote, and shipping features end to end, including three LLM-backed ones running in a production hiring portal.",
+    "Alongside that I run Dark Matter Studio, independent web and LLM work. Automating its own CRM is where Dark Matter Co-Pilot came from: a Model Context Protocol (MCP) server giving an AI assistant structured access to real operations data through ten typed tools over SQLite, with Pydantic v2 as the single source of truth for rows, schemas and responses. I use it daily.",
+    "The other half of my time goes to empirical ML: whether reported results survive being measured properly. A co-authored preprint on the capitulation direction that reported a null when the positive control passed and the direction didn't. A segmentation audit where seed alone moved the score more than most published improvements. Starting an M.Sc. at TU Dresden in October 2026.",
   ],
   quickLinks: [
-    { label: "GitHub", href: "https://github.com/saadaamir" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/saadaamir" },
+    { label: "GitHub", href: "https://github.com/saad-aamir" },
+    { label: "Substack", href: "https://beginnersmindbysaad.substack.com" },
     { label: "CV", href: "/saad-aamir-cv.pdf" },
     { label: "Email", href: "mailto:saadaamir473@gmail.com" },
   ],
 };
 
 export const stats = [
-  { value: "4+", label: "years shipping production systems" },
-  { value: "12+", label: "client products launched" },
+  { value: "3", label: "years shipping production systems" },
+  { value: "138,639", label: "neurons in the connectome I simulated" },
   { value: "∞", label: "tabs open at any given time" },
 ];
 
@@ -50,20 +51,6 @@ export const caseStudies: Record<
     },
     result: {
       text: "When complete, asking Claude \"draft a proposal for the new wedding photographer lead, portfolio site, mid-complexity\" will produce a grounded, on-brand proposal in seconds, referencing the right case studies, using my actual pricing, in my voice. Goal: turn 30-minute proposal drafts into 3-minute reviews, and stop letting follow-ups slip.",
-    },
-  },
-  "ai-resume-matcher": {
-    problem: {
-      text: "Early hiring pipelines involve a lot of manual comparison: reading a job description, reading a resume, deciding if the match is worth a call. The process is slow, inconsistent across reviewers, and often misses non-obvious alignment (a candidate with adjacent skills who hasn't used the exact keyword).",
-    },
-    approach: {
-      text: "Used structured LLM extraction to pull typed representations of both the JD and resume (skills, experience level, responsibility scope, tone), then scored alignment across those dimensions rather than keyword overlap. The structured extraction step is where most of the quality comes from: once you have clean structured data, the comparison is straightforward.",
-    },
-    tradeoffs: {
-      text: "Structured extraction via LLM is not free: it adds latency and cost per comparison. For high-volume pipelines you'd want a cached or embedded representation. We also deliberately did not train a classifier, because a fine-tuned model would memorize the biases of whoever labeled the training data. Using a general-purpose model with explicit criteria is more auditable, which matters here.",
-    },
-    status: {
-      text: "Shipped and in use. The core matching logic is stable; the UI is minimal by intent.",
     },
   },
 };

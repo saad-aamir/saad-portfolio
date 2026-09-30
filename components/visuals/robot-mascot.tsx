@@ -190,7 +190,7 @@ export default function RobotMascot() {
         className="robot-float"
         style={{ display: "block" }}
         role="img"
-        aria-label="Robot mascot — click to chat"
+        aria-label="Robot mascot, click to chat"
       >
         {/* Antenna */}
         <line x1="32" y1="3" x2="32" y2="15" stroke={AD} strokeWidth="1.5" strokeLinecap="round" />

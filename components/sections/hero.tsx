@@ -57,18 +57,19 @@ export default function Hero() {
                 Saad Aamir
               </span>
               ,<br />
-              a software<br />
-              engineer<br />
-              building toward<br />
-              <span className="text-text">AI safety.</span>
+              an AI software<br />
+              engineer who<br />
+              ships LLM systems<br />
+              <span className="text-text">and measures them.</span>
             </h1>
 
             {/* Lead */}
             <p className="mb-8 max-w-lg text-text-dim leading-relaxed" style={{ fontSize: "17px" }}>
-              I build <strong className="text-text font-semibold">full-stack systems</strong> and{" "}
-              <strong className="text-text font-semibold">LLM tooling</strong>, including a
-              Model Context Protocol server for my studio. Moving toward empirical work on the
-              interpretability and oversight of frontier models.
+              Three years of production experience across{" "}
+              <strong className="text-text font-semibold">Node.js, TypeScript, C# and .NET</strong>,
+              with <strong className="text-text font-semibold">LLM-backed features</strong> running
+              on top of them. Alongside that, empirical ML work on whether reported results survive
+              being measured properly.
             </p>
 
             {/* CTAs */}

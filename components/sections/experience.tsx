@@ -83,6 +83,36 @@ export default function Experience() {
                     >
                       {entry.description}
                     </p>
+
+                    {entry.bullets && (
+                      <ul className="mt-4 space-y-2.5">
+                        {entry.bullets.map((bullet) => (
+                          <li
+                            key={bullet}
+                            className="flex gap-3 text-text-dim leading-relaxed"
+                            style={{ fontSize: "14.5px" }}
+                          >
+                            <span
+                              className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-accent-dim"
+                              aria-hidden="true"
+                            />
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {entry.stack.map((tool) => (
+                        <span
+                          key={tool}
+                          className="font-mono rounded-full border border-border px-2.5 py-0.5 text-text-mute"
+                          style={{ fontSize: "11px" }}
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                 </div>

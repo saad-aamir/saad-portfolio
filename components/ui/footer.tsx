@@ -3,13 +3,13 @@
 import { useEffect, useState } from "react";
 import Container from "./container";
 
-function RawalpindiClock() {
+function DresdenClock() {
   const [time, setTime] = useState("");
 
   useEffect(() => {
     const update = () => {
       const t = new Date().toLocaleTimeString("en-US", {
-        timeZone: "Asia/Karachi",
+        timeZone: "Europe/Berlin",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
@@ -24,7 +24,7 @@ function RawalpindiClock() {
 
   return (
     <span className="font-mono text-text-mute" style={{ fontSize: "12px" }}>
-      Rawalpindi {time}
+      Dresden {time}
     </span>
   );
 }
@@ -39,7 +39,7 @@ export default function Footer() {
           <p className="font-mono text-text-mute" style={{ fontSize: "12px" }}>
             © {year} Saad Aamir
           </p>
-          <RawalpindiClock />
+          <DresdenClock />
         </div>
       </Container>
     </footer>

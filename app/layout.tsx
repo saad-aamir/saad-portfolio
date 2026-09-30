@@ -15,14 +15,15 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const description =
+  "AI software engineer in Dresden. Three years of production backends across Node.js, TypeScript and .NET, LLM systems shipped on top of them, and empirical ML work on whether reported results hold up.";
+
 export const metadata: Metadata = {
-  title: "Saad Aamir | Software Engineer",
-  description:
-    "Software engineer at Dark Matter Studio. Full-stack systems, AI tooling, and research-adjacent work.",
+  title: "Saad Aamir | AI Software Engineer",
+  description,
   openGraph: {
-    title: "Saad Aamir | Software Engineer",
-    description:
-      "Software engineer at Dark Matter Studio. Full-stack systems, AI tooling, and research-adjacent work.",
+    title: "Saad Aamir | AI Software Engineer",
+    description,
     type: "website",
   },
 };

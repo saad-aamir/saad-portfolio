@@ -56,7 +56,7 @@ export default function Writing() {
                 onClick={() => window.open(post.href, "_blank")}
                 onKeyDown={(e) => { if (e.key === "Enter") window.open(post.href, "_blank"); }}
                 className="writing-row group cursor-pointer flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8 py-10 border-t border-border hover:border-border-2 hover:bg-bg-card/40 rounded-sm transition-colors px-2 -mx-2"
-                aria-label={`${post.title} — opens on Substack`}
+                aria-label={`${post.title}, opens on Substack`}
               >
                 {/* Number */}
                 <span

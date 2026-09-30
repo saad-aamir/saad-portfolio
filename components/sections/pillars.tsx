@@ -7,17 +7,17 @@ const pillars = [
   {
     icon: Code2,
     title: "Full-Stack Engineering",
-    body: "Production systems across Python, TypeScript, and Node: analytics dashboards, internal portals, REST APIs, and cloud infrastructure on AWS. 3+ years shipping at MobileLIVE and independently.",
+    body: "Backends I designed and own, and codebases other people wrote that I modernized: REST APIs and data models, .NET 6 to .NET 8 migrations, React dashboards over Node and TypeScript services, AWS infrastructure with CI/CD through GitHub Actions.",
   },
   {
     icon: Brain,
-    title: "AI & LLM Tooling",
-    body: "Practical integrations of language models into existing systems: MCP servers, RAG pipelines with LangChain and FAISS, structured outputs with Pydantic, and grounded workflows that don't hallucinate.",
+    title: "AI & LLM Systems",
+    body: "Language models wired into real workflows: Model Context Protocol (MCP) servers, function calling against schemas I define, structured outputs validated with Pydantic before anything reaches a database. Three LLM-backed features shipped into a production hiring portal.",
   },
   {
     icon: Microscope,
-    title: "Research Direction",
-    body: "Moving toward empirical AI safety research: mechanistic interpretability, behavioral evaluations, scalable oversight. Currently self-studying transformer internals and applying to research-focused programs.",
+    title: "Empirical ML",
+    body: "Treating a model score as a measurement rather than a result: pre-registered protocols, seed variance, shuffled-label nulls, positive controls. A co-authored preprint, a multi-centre segmentation audit, and a null I published instead of burying.",
   },
 ];
 
@@ -32,15 +32,15 @@ export default function Pillars() {
             className="mb-5 font-semibold tracking-[-0.02em]"
             style={{ fontSize: "44px" }}
           >
-            I build software and{" "}
-            <span className="text-accent">the AI tooling</span>
+            I build software,{" "}
+            <span className="text-accent">the AI inside it</span>,
             <br className="hidden sm:block" />
-            {" "}that operates it.
+            {" "}and the evidence it works.
           </h2>
           <p className="mb-16 max-w-2xl text-text-dim leading-relaxed" style={{ fontSize: "22px" }}>
             Three areas where I spend most of my time: engineering production
-            systems, integrating language models into real workflows, and moving
-            toward empirical research on how those models behave.
+            systems, wiring language models into them, and measuring carefully
+            enough to know whether any of it holds up.
           </p>
         </Reveal>
 

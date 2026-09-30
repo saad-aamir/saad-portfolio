@@ -7,7 +7,7 @@ interface PortraitProps {
 }
 
 export default function Portrait({ variant = "hero", className }: PortraitProps) {
-  const coords = variant === "hero" ? "33.6°N 73.0°E" : "Rawalpindi, PK";
+  const coords = variant === "hero" ? "51.1°N 13.7°E" : "Dresden, DE";
   const hasPhoto = variant === "hero";
 
   return (
