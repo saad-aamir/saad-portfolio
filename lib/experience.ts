@@ -5,9 +5,9 @@ export interface ExperienceEntry {
   startDate: string;
   endDate: string;
   current: boolean;
-  description: string;
+  description?: string;
   bullets?: string[];
-  stack: string[];
+  stack?: string[];
 }
 
 export const experience: ExperienceEntry[] = [
@@ -18,9 +18,6 @@ export const experience: ExperienceEntry[] = [
     startDate: "OCT 2026",
     endDate: "PRESENT",
     current: true,
-    description:
-      "Reading for an M.Sc. in Computer Science at TU Dresden, alongside continued independent work on model evaluation and interpretability.",
-    stack: ["Python", "PyTorch", "TransformerLens"],
   },
   {
     id: "dark-matter",
@@ -88,7 +85,6 @@ export const experience: ExperienceEntry[] = [
     endDate: "2023",
     current: false,
     description:
-      "Final year project: NLP-based automated code review system using transformer models. Research assistant in the AI lab, working on sequence modeling for structured prediction tasks.",
-    stack: ["Python", "PyTorch", "NLP", "C++"],
+      "Final year project: indoor navigation for our campus using AR.",
   },
 ];

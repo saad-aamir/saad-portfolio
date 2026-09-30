@@ -77,12 +77,14 @@ export default function Experience() {
                       {entry.tags.join(" · ")}
                     </p>
 
-                    <p
-                      className="text-text-dim leading-relaxed"
-                      style={{ fontSize: "14.5px" }}
-                    >
-                      {entry.description}
-                    </p>
+                    {entry.description && (
+                      <p
+                        className="text-text-dim leading-relaxed"
+                        style={{ fontSize: "14.5px" }}
+                      >
+                        {entry.description}
+                      </p>
+                    )}
 
                     {entry.bullets && (
                       <ul className="mt-4 space-y-2.5">
@@ -102,17 +104,19 @@ export default function Experience() {
                       </ul>
                     )}
 
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {entry.stack.map((tool) => (
-                        <span
-                          key={tool}
-                          className="font-mono rounded-full border border-border px-2.5 py-0.5 text-text-mute"
-                          style={{ fontSize: "11px" }}
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
+                    {entry.stack && (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {entry.stack.map((tool) => (
+                          <span
+                            key={tool}
+                            className="font-mono rounded-full border border-border px-2.5 py-0.5 text-text-mute"
+                            style={{ fontSize: "11px" }}
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                 </div>
