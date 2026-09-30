@@ -2,6 +2,7 @@ import Nav from "@/components/ui/nav";
 import Footer from "@/components/ui/footer";
 import Hero from "@/components/sections/hero";
 import IntroOverlay from "@/components/intro-overlay";
+import BabyRobot from "@/components/visuals/baby-robot";
 import Pillars from "@/components/sections/pillars";
 import About from "@/components/sections/about";
 import Experience from "@/components/sections/experience";
@@ -16,7 +17,8 @@ export default function Home() {
     <>
       <IntroOverlay />
       <Nav />
-      <main id="main-content">
+      <main id="main-content" className="relative">
+        <BabyRobot />
         <Hero />
         <Pillars />
         <About />
